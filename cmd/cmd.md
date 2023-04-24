@@ -8,6 +8,6 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v
 
 Connect to session
 ```cmd
-QUERY SESSION /SERVER:SERVER.GT.RU
-Mstsc.exe /shadow:<ID> /control /noConsentPrompt /v:<Servername>
+query session /server:<Servername>
+Mstsc.exe /shadow:<Session ID> /control /noConsentPrompt /v:<Servername>
 ```
