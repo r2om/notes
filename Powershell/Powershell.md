@@ -7,5 +7,5 @@ Get-WmiObject Win32_Product | Where-Object {$_.Name -like "*programm_name*"} | %
 
 Get Partition size:
 ```powershell
-Get-Partition | ? {$_.DiskPath -like "*disk_vendor*"} | Select-Object -Property DiskPath, AccessPaths, @{Name = "Size"; Expression = {"{0:N}" -f [math]::round($_.Size / 1Mb, 2)}}
+Get-Partition | ? {$_.DiskPath -like "*disk_vendor*"} | Select-Object -Property DiskPath, AccessPaths, @{Name = "Size"; Expression = {"{0:N}" -f [math]::round($_.Size / 1Gb, 2)}}
 ```
