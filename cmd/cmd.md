@@ -14,9 +14,6 @@ Mstsc.exe /shadow:<Session ID> /control /noConsentPrompt /v:<Servername>
 
 Enable admin$ share
 ```cmd
-# Admin$ Share
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters
-Устанавливаем параметру типа REG_DWORD «AutoShareServer» для сервера или параметру «AutoShareWks» для рабочей станции значение «1».
-Если же необходимо удалить админские шары, то необходимо установить значения «0» для вышеуказанных параметров.
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" /v AutoShareWks /t REG_DWORD /d 1 /f
 net stop lanmanserver && net start lanmanserver
 ```
