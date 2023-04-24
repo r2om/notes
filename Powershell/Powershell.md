@@ -1,6 +1,6 @@
 # Powershell
 
-Uninstall Programm:
+Remove Programm:
 ```powershell
 Get-WmiObject Win32_Product | Where-Object {$_.Name -like "*programm_name*"} | % {$_.Uninstall} 
 ```
