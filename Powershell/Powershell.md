@@ -14,3 +14,8 @@ Get-Partition | ? {$_.DiskPath -like "*disk_vendor*"} | Select-Object -Property 
 ```powershell
 "{0:N} Mb" -f ((Get-ChildItem -Recurse -Path .\Downloads\ -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum).Sum/1Mb)
 ```
+
+### Administrator access check
+```powershell
+[bool]([Security.Principal.WindowsIdentity]::GetCurrent().Groups -match 'S-1-5-32-544')
+```
