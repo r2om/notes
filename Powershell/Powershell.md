@@ -2,7 +2,7 @@
 
 ### Remove Programm:
 ```powershell
-Get-WmiObject Win32_Product | Where-Object {$_.Name -like "*programm_name*"} | % {$_.Uninstall} 
+Get-WmiObject Win32_Product | Where-Object {$_.Name -match "Programname"} | % {$_.Uninstall} 
 ```
 
 ### Get Partition size:
