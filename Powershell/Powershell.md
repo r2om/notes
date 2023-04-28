@@ -7,7 +7,7 @@ Get-WmiObject Win32_Product | Where-Object {$_.Name -like "*programm_name*"} | %
 
 ### Get Partition size:
 ```powershell
-Get-Partition | ? {$_.DiskPath -match "wdc480*"} | Select-Object -Property DiskPath, AccessPaths, @{Name = "Size"; Expression = {"{0:N}" -f [Math]::Round($_.Size / 1Gb, 2)}} | Format-List
+Get-Partition | ? {$_.DiskPath -match "wdc480"} | Select-Object -Property DiskPath, AccessPaths, @{Name = "Size"; Expression = {"{0:N}" -f [Math]::Round($_.Size / 1Gb, 2)}} | Format-List
 ```
 
 ### Directory size:
