@@ -19,3 +19,7 @@ Get-Partition | ? {$_.DiskPath -match "wdc480"} | Select-Object -Property DiskPa
 ```powershell
 [bool]([Security.Principal.WindowsIdentity]::GetCurrent().Groups -match 'S-1-5-32-544')
 ```
+### Recursive search
+```powershell
+Get-ChildItem -Path C:\Windows\System32 -Recurse -ErrorAction SilentlyContinue | select FullName | ? {$_.FullName -match "user32.dll"}
+```
