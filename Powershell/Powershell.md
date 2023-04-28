@@ -1,16 +1,16 @@
 # Powershell
 
-### Remove Programm:
+### Remove Programm
 ```powershell
 Get-WmiObject Win32_Product | Where-Object {$_.Name -match "Programname"} | % {$_.Uninstall} 
 ```
 
-### Get Partition size:
+### Get Partition size
 ```powershell
 Get-Partition | ? {$_.DiskPath -match "wdc480"} | Select-Object -Property DiskPath, AccessPaths, @{Name = "Size"; Expression = {"{0:N}" -f [Math]::Round($_.Size / 1Gb, 2)}} | Format-List
 ```
 
-### Directory size:
+### Directory size
 ```powershell
 "{0:N} Mb" -f ((Get-ChildItem -Recurse -Path .\Downloads\ -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum).Sum/1Mb)
 ```
