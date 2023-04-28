@@ -23,3 +23,7 @@ Get-Partition | ? {$_.DiskPath -match "wdc480"} | Select-Object -Property DiskPa
 ```powershell
 Get-ChildItem -Path C:\Windows\System32 -Recurse -ErrorAction SilentlyContinue | select FullName | ? {$_.FullName -match "user32.dll"}
 ```
+```powershell
+Get-ChildItem -Path C:\Windows\System32\* -Include user32.dll
+```
+When the Include parameter is used, the Path parameter needs a trailing asterisk (*) wildcard to specify the directory's contents. For example, -Path C:\Test\*.
