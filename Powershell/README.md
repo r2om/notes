@@ -28,7 +28,7 @@ Get-ChildItem -Path C:\Windows\System32\* -Include user32.dll
 ```
 When the Include parameter is used, the Path parameter needs a trailing asterisk (*) wildcard to specify the directory's contents. For example, -Path C:\Test\*.
 
-### Enter-PsSession codepage fix
+### Enter-PSSession codepage fix
 ```powershell
 Add-Type -Namespace Win32 -Name Kernel32 -MemberDefinition @'
 [DllImport("Kernel32.dll", SetLastError=true)]
