@@ -1,5 +1,10 @@
 # Powershell
 
+### Sort IP Address
+```powershell
+Get-DhcpServerv4Reservation -ComputerName dhcp.domain.local -ScopeId 192.168.0.0 | Select IPAddress | Sort -Property { [Version]$_.IPAddress.IPAddressToString }
+```
+
 ### Remove Programm
 ```powershell
 Get-WmiObject Win32_Product | Where-Object {$_.Name -match "Programname"} | % {$_.Uninstall} 
