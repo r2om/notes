@@ -42,3 +42,9 @@ public static extern bool AllocConsole();
 [void][Win32.Kernel32]::AllocConsole()
 [Console]::OutputEncoding = [Text.Encoding]::GetEncoding(866)
 ```
+
+### Restic backup
+```powershell
+. .\Env.ps1
+Get-ChildItem -Path F: -Directory | Where-Object {$_.Name -notmatch "(1.*)|(Distr)|(ERP_DOC)|(B24)"} | Sort-Object -Property LastWriteTime -Descending | Select-Object -ExpandProperty FullName -First 30 | % {.\Restic.exe backup $_}
+```
