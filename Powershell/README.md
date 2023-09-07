@@ -54,5 +54,5 @@ Get-ChildItem -Path F: -Directory | Where-Object {$_.Name -notmatch "(1.*)|(Dist
 Get-WindowsImage -ImagePath E:\sources\install.wim
 Mount-WindowsImage -ImagePath E:\sources\install.wim -Index 5 -Path D:\Dism\
 Add-WindowsDriver -Path D:\Dism\ -Driver D:\Drivers\ -Recurse
-Dismout-WindowsImage -Path D:\Dism\ -Save
+Dismount-WindowsImage -Path D:\Dism\ -Save
 ```
