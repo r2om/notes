@@ -48,3 +48,11 @@ public static extern bool AllocConsole();
 . .\Env.ps1
 Get-ChildItem -Path F: -Directory | Where-Object {$_.Name -notmatch "(1.*)|(Distr)|(ERP_DOC)|(B24)"} | Sort-Object -Property LastWriteTime -Descending | Select-Object -ExpandProperty FullName -First 30 | % {.\Restic.exe backup $_}
 ```
+
+### Add drivers to install.wim
+```powershell
+Get-WindowsImage -ImagePath E:\sources\install.wim
+Mount-WindowsImage -ImagePath E:\sources\install.wim -Index 5 -Path D:\Dism\
+Add-WindowsDriver -Path D:\Dism\ -Driver D:\Drivers\ -Recurse
+Dismout-WindowsImage -Path D:\Dism\ -Save
+```
